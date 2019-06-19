@@ -14,14 +14,22 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
+    //查询所有商品信息
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(){
+    public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Product> productList = productService.findAll();
         mv.addObject("productList",productList);
         mv.setViewName("product-list");
         return mv;
+    }
+
+    //保存产品信息
+    @RequestMapping("/save.do")
+    public String save(Product product) throws Exception {
+        productService.save(product);
+        return "redirect:findAll.do";
     }
 }

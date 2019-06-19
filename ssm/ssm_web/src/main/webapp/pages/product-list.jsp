@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>product-list1</title>
+    <title>产品信息</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -134,13 +134,13 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                数据管理
-                <small>数据列表</small>
+                产品管理
+                <small>产品列表</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">数据管理</a></li>
-                <li class="active">数据列表</li>
+                <li><a href="${pageContext.request.contextPath}/pages/main.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">产品管理</a></li>
+                <li class="active">产品列表</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -221,8 +221,7 @@
                                     <td class="text-center">${product.productDesc}</td>
                                     <td class="text-center">${product.productStatusStr}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs">订单</button>
-                                        <button type="button" class="btn bg-olive btn-xs">详情</button>
+                                        <button type="button" class="btn bg-olive btn-xs">删除</button>
                                         <button type="button" class="btn bg-olive btn-xs">编辑</button>
                                     </td>
                                 </tr>
@@ -243,7 +242,7 @@
                         <!--数据列表/-->
 
                         <!--工具栏-->
-                        <div class="pull-left">
+                        <%--<div class="pull-left">
                             <div class="form-group form-inline">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" title="新建"><i
@@ -263,13 +262,13 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="box-tools pull-right">
+                        </div>--%>
+                        <%--<div class="box-tools pull-right">
                             <div class="has-feedback">
                                 <input type="text" class="form-control input-sm" placeholder="搜索">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
-                        </div>
+                        </div>--%>
                         <!--工具栏/-->
 
                     </div>

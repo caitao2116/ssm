@@ -23,7 +23,7 @@
     </bean>
     <!--忽略静态资源-->
     <mvc:resources location="/css/" mapping="/css/**" />
-    <mvc:resources location="/images/" mapping="/images/**" />
+    <mvc:resources location="/img/" mapping="/images/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
     <!--注解配置-->
     <mvc:annotation-driven/>

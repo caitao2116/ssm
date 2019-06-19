@@ -9,5 +9,8 @@ import java.util.List;
  */
 public interface ProductService {
     //查询所有产品信息
-    List<Product> findAll();
+    List<Product> findAll() throws Exception;
+
+    //保存产品信息
+    void save(Product product) throws Exception;
 }

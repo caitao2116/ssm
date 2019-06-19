@@ -17,14 +17,23 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    ProductDao productDao;
+    private ProductDao productDao;
 
     /**
      * 查询所有产品信息
      * @return
      */
     @Override
-    public List<Product> findAll() {
+    public List<Product> findAll() throws Exception {
         return productDao.findAll();
+    }
+
+    /**
+     * 保存产品信息
+     * @param product
+     */
+    @Override
+    public void save(Product product) throws Exception {
+        productDao.save(product);
     }
 }
