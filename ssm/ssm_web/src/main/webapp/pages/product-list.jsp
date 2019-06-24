@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>产品信息</title>
+    <title>产品列表</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -172,10 +172,7 @@
                                     <button type="button" class="btn btn-default" title="开启"><i class="fa fa-check"></i>
                                         开启
                                     </button>
-                                    <button type="button" class="btn btn-default" title="屏蔽"><i class="fa fa-ban"></i>
-                                        屏蔽
-                                    </button>
-                                    <button type="button" class="btn btn-default" title="刷新"><i
+                                    <button type="button" class="btn btn-default" title="刷新" onclick="location.reload()"><i
                                             class="fa fa-refresh"></i> 刷新
                                     </button>
                                 </div>
@@ -196,14 +193,14 @@
                                 <th class="" style="padding-right:0px;">
                                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                                 </th>
-                                <th class="sorting_asc">ID</th>
-                                <th class="sorting_desc">编号</th>
-                                <th class="sorting_asc sorting_asc_disabled">产品名称</th>
-                                <th class="sorting_desc sorting_desc_disabled">出发城市</th>
-                                <th class="sorting">出发时间</th>
-                                <th class="text-center sorting">产品价格</th>
-                                <th class="text-center sorting">产品描述</th>
-                                <th class="text-center sorting">状态</th>
+                                <th class="text-left">ID</th>
+                                <th class="text-center">编号</th>
+                                <th class="text-center">产品名称</th>
+                                <th class="text-center">出发城市</th>
+                                <th class="text-center">出发时间</th>
+                                <th class="text-center">产品价格</th>
+                                <th class="text-center">产品描述</th>
+                                <th class="text-center">状态</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>

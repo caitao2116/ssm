@@ -12,7 +12,7 @@
 
 
 
-<title>订单信息</title>
+<title>数据 - AdminLTE2定制版</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					订单管理 <small>订单列表</small>
+					数据管理 <small>数据列表</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="${pageContext.request.contextPath}/pages/main.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">订单管理</a></li>
-					<li class="active">订单列表</li>
+					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+					<li><a href="#">数据管理</a></li>
+					<li class="active">数据列表</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -201,6 +201,12 @@
 										<button type="button" class="btn btn-default" title="删除">
 											<i class="fa fa-trash-o"></i> 删除
 										</button>
+										<button type="button" class="btn btn-default" title="开启">
+											<i class="fa fa-check"></i> 开启
+										</button>
+										<button type="button" class="btn btn-default" title="屏蔽">
+											<i class="fa fa-ban"></i> 屏蔽
+										</button>
 										<button type="button" class="btn btn-default" title="刷新" onclick="location.reload()">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
@@ -224,19 +230,19 @@
 										<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
-										<th class="text-left">ID</th>
-										<th class="text-center">订单编号</th>
-										<th class="text-center">产品名称</th>
-										<th class="text-center">金额</th>
-										<th class="text-center">下单时间</th>
-										<th class="text-center">订单状态</th>
+										<th class="sorting_asc">ID</th>
+										<th class="sorting_desc">订单编号</th>
+										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
+										<th class="sorting_desc sorting_desc_disabled">金额</th>
+										<th class="sorting">下单时间</th>
+										<th class="text-center sorting">订单状态</th>
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
 								<tbody>
 
 
-									<c:forEach items="${pageInfo.list}" var="orders">
+									<c:forEach items="${ordersList}" var="orders">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
@@ -247,7 +253,7 @@
 											<td>${orders.orderTimeStr }</td>
 											<td class="text-center">${orders.orderStatusStr }</td>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">删除</button>
+												<button type="button" class="btn bg-olive btn-xs">订单</button>
 												<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/findById.do?id=${orders.id}'">详情</button>
 												<button type="button" class="btn bg-olive btn-xs">编辑</button>
 											</td>
@@ -268,7 +274,7 @@
 							<!--数据列表/-->
 
 							<!--工具栏-->
-							<%--<div class="pull-left">
+							<div class="pull-left">
 								<div class="form-group form-inline">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default" title="新建">
@@ -295,7 +301,7 @@
 										placeholder="搜索"> <span
 										class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
-							</div>--%>
+							</div>
 							<!--工具栏/-->
 
 						</div>
@@ -309,27 +315,12 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共${pageInfo.pages}页，共${pageInfo.total} 条数据。 每页
-                            <select class="form-control" id="changePageSize" onchange="changePageSize()">
-								<c:if test="${pageInfo.pageSize == 1}">
-									<option selected>1</option>
-								</c:if>
+                            总共2 页，共14 条数据。 每页
+                            <select class="form-control">
                                 <option>1</option>
-								<c:if test="${pageInfo.pageSize == 2}">
-									<option selected>2</option>
-								</c:if>
                                 <option>2</option>
-								<c:if test="${pageInfo.pageSize == 3}">
-									<option selected>3</option>
-								</c:if>
                                 <option>3</option>
-								<c:if test="${pageInfo.pageSize == 4}">
-									<option selected>4</option>
-								</c:if>
                                 <option>4</option>
-								<c:if test="${pageInfo.pageSize == 5}">
-									<option selected>5</option>
-								</c:if>
                                 <option>5</option>
                             </select> 条
                         </div>
@@ -340,12 +331,13 @@
                             <li>
                                 <a href="${pageContext.request.contextPath}/orders/findAll.do?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
-                            <c:forEach begin = "1" end="${pageInfo.pages}" var="pageNum">
-
-							<li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
-							</c:forEach>
-                            <li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
+                            <li><a href="#">上一页</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">下一页</a></li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a>
                             </li>
@@ -473,7 +465,7 @@
 			var pageSize = $("#changePageSize").val();
 
 			//向服务器发送请求，改变没页显示条数
-			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&size="
+			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize="
 					+ pageSize;
 		}
 		$(document).ready(function() {
